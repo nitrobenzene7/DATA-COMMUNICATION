@@ -1,0 +1,33 @@
+clc;
+
+close all
+t=0:0.001:1;
+vm=5;
+vc=5;
+fm=10;
+fc=100;
+m=10;
+msg=vm*sin(2*pi*fm*t);
+subplot(311);
+plot(t,msg);
+xlabel("Time");
+ylabel("Amplitude");
+title("MSG Signal/Sohan/071");
+legend("Message");
+grid on;
+carrier = vc*sin(2*pi*fc*t);
+subplot(3,1,2);
+plot(t,carrier);
+xlabel("Time");
+ylabel("Amplitude");
+title("Carrier Signal/Sohan/071");
+legend("Carrier");
+grid on;
+y=vc.*cos((2*pi*fc*t)+m*msg);
+subplot(313);
+plot(t,y);
+xlabel("Time");
+ylabel("Amplitude");
+title("Phase Modulated/Sohan/071");
+legend("Phase Modulated");
+grid on;
